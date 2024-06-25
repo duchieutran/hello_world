@@ -13,10 +13,8 @@ class Mbank extends StatefulWidget {
 }
 
 class _MbankState extends State<Mbank> {
-
-@override
+  @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -66,8 +64,7 @@ class _MbankState extends State<Mbank> {
               const MbankViewStep(),
               const SizedBox(height: 100),
               const MbankContact(phone: '0345736189'),
-              const MbankTrick(
-              ),
+              const MbankTrick(),
               const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {

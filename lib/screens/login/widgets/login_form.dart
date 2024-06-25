@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hieuductran/screens/home_screen/home_sceen.dart';
+import 'package:hieuductran/screens/login/widgets/login_logic.dart';
 import 'package:hieuductran/screens/login/widgets/login_text.dart';
 import 'package:hieuductran/screens/login/widgets/login_text_button.dart';
+import 'package:hieuductran/screens/login/widgets/login_text_field.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -11,34 +12,15 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  late final _controllerUser;
-  late final _controllerPass;
-
-  @override
-  void initState() {
-    super.initState();
-    _controllerUser = TextEditingController();
-    _controllerPass = TextEditingController();
-  }
+  final _controllerUser = TextEditingController();
+  final _controllerPass = TextEditingController();
+  final _loginLogic = LoginLogic();
 
   @override
   void dispose() {
     _controllerUser.dispose();
     _controllerPass.dispose();
     super.dispose();
-  }
-
-  void _checkLogin() {
-    if (_controllerUser.text.isEmpty || _controllerPass.text.isEmpty) {
-      // print('Vui lòng không để trống tài khoản và mật khẩu!');
-    } else if (_controllerUser.text == 'admin' &&
-        _controllerPass.text == '123456') {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const HomeScreen()));
-      return;
-    } else {
-      // print('Tài Khoản Mật Khẩu sai!');
-    }
   }
 
   @override
@@ -48,42 +30,32 @@ class _LoginFormState extends State<LoginForm> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const LoginText(title: 'Username : '),
-        TextField(
+        LoginTextField(
           controller: _controllerUser,
-          decoration: const InputDecoration(
-            hintText: 'Type your username',
-            hintStyle: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w400,
-                color: Color.fromARGB(255, 111, 108, 108)),
-            prefixIcon: Icon(
-              Icons.person,
-              color: Color.fromARGB(255, 111, 108, 108),
-            ),
-          ),
+          hintText: 'Type your username',
+          iconTextField: Icons.person,
         ),
-        const LoginText(title: 'Password : '),
-        TextField(
-          controller: _controllerPass,
-          decoration: const InputDecoration(
-            hintText: 'Type your password',
-            hintStyle: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w400,
-                color: Color.fromARGB(255, 111, 108, 108)),
-            prefixIcon: Icon(
-              Icons.lock,
-              color: Color.fromARGB(255, 111, 108, 108),
-              size: 18,
+        Stack(
+          alignment: Alignment.centerRight,
+          children: [
+            LoginTextField(
+              controller: _controllerPass,
+              hide: true,
+              hintText: 'Type your username',
+              iconTextField: Icons.lock,
             ),
-          ),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.visibility))
+          ],
         ),
         LoginTextButton(
+          mainAxitsAlm: MainAxisAlignment.end,
           function: () {},
           text: 'Forgot Password ?',
         ),
         ElevatedButton(
-          onPressed: _checkLogin,
+          onPressed: () {
+            _loginLogic.checkLogin(context, _controllerUser, _controllerPass);
+          },
           style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
           child: const Text(
             'LOGIN',

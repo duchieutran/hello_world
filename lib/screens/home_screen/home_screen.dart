@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hieuductran/screens/feed/feed.dart';
 import 'package:hieuductran/screens/home/home.dart';
 import 'package:hieuductran/screens/home_screen/widgets/home_tab_bar.dart';
 import 'package:hieuductran/screens/mbank/mbank.dart';
 import 'package:hieuductran/screens/setting/setting.dart';
-import 'package:hieuductran/screens/webview/webview_screen.dart';
 import 'package:hieuductran/widgets/duchieu_app_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(Icons.menu),
+            icon: const Icon(Icons.arrow_back_ios),
             color: Colors.black,
           ),
           action: const [
@@ -77,8 +77,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           controller: _tabController,
           children: [
             const HomeTab(),
-            
-            const WebviewScreen(),
+            const FeedTab(),
             Mbank(changeTab: changeTab),
             const Setting(),
           ],

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hieuductran/screens/home/widgets/home_data.dart';
 
-
 class HomeTab extends StatelessWidget {
   const HomeTab({super.key});
 
@@ -28,16 +27,21 @@ class _HomeWidgetState extends State<HomeWidget> {
           itemBuilder: (context, index) {
             final user = HomeData().users[index];
             return ListTile(
-                leading: ClipOval(
-                  child: Image.asset(
-                    user['logo'],
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.cover,
-                  ),
+              leading: ClipOval(
+                child: Image.asset(
+                  user['logo'],
+                  width: 50,
+                  height: 50,
+                  fit: BoxFit.cover,
                 ),
-                title: Text(user['name']),
-                subtitle: Text(user['email']));
+              ),
+              title: Text(user['name']),
+              subtitle: Text(user['email']),
+              onTap: () {
+                Navigator.pushNamed(context, '/homeshowinfo',
+                    arguments: user['email']);
+              },
+            );
           }),
     );
   }

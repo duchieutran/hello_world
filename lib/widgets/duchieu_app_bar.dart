@@ -40,7 +40,7 @@ class DuchieuAppBar extends StatelessWidget implements PreferredSize {
       leading: showLeading ? leading ??
           IconButton(
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.pop(context);
             },
             icon: const Icon(Icons
                 .arrow_back), // trong ìcon thườn quan tâm đến size or color
