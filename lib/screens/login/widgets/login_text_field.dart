@@ -1,24 +1,32 @@
 import 'package:flutter/material.dart';
 
 class LoginTextField extends StatelessWidget {
-  const LoginTextField({
-    super.key,
-    required this.controller,
-    this.hide = false,
-    this.hintText,
-    this.iconTextField
-  });
+  const LoginTextField(
+      {super.key,
+      required this.controller,
+      this.hide = false,
+      this.hintText,
+      this.iconTextField,
+      this.focus,
+      this.submitted,
+      this.done});
 
   final TextEditingController controller;
   final bool hide;
   final String? hintText;
   final IconData? iconTextField;
+  final FocusNode? focus;
+  final Function(String)? submitted;
+  final TextInputAction? done;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      focusNode: focus,
+      onFieldSubmitted: submitted,
       controller: controller,
       obscureText: hide,
+      textInputAction: done,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: const TextStyle(

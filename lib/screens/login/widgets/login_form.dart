@@ -14,7 +14,9 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   final _controllerUser = TextEditingController();
   final _controllerPass = TextEditingController();
-  final _loginLogic = LoginLogic();
+  bool _isShow = true;
+  final _focusUser = FocusNode();
+  final _focusPass = FocusNode();
 
   @override
   void dispose() {
@@ -34,17 +36,31 @@ class _LoginFormState extends State<LoginForm> {
           controller: _controllerUser,
           hintText: 'Type your username',
           iconTextField: Icons.person,
+          focus: _focusUser,
+          submitted: (value) => FocusScope.of(context).requestFocus(_focusPass),
         ),
         Stack(
           alignment: Alignment.centerRight,
           children: [
             LoginTextField(
               controller: _controllerPass,
-              hide: true,
+              hide: _isShow,
               hintText: 'Type your username',
               iconTextField: Icons.lock,
+              focus: _focusPass,
+              submitted: (value) => LoginLogic()
+                  .checkLogin(context, _controllerUser, _controllerPass),
+              done: TextInputAction.done,
             ),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.visibility))
+            IconButton(
+                onPressed: () {
+                  setState(() {
+                    _isShow = !_isShow;
+                  });
+                },
+                icon: _isShow
+                    ? const Icon(Icons.visibility)
+                    : const Icon(Icons.visibility_off))
           ],
         ),
         LoginTextButton(
@@ -54,7 +70,7 @@ class _LoginFormState extends State<LoginForm> {
         ),
         ElevatedButton(
           onPressed: () {
-            _loginLogic.checkLogin(context, _controllerUser, _controllerPass);
+            LoginLogic().checkLogin(context, _controllerUser, _controllerPass);
           },
           style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
           child: const Text(

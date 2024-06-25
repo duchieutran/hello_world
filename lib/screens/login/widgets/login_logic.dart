@@ -14,4 +14,7 @@ class LoginLogic {
           content: Text('Tên đăng nhập hoặc mật khẩu không đúng!')));
     }
   }
+  // void hidePassword () {
+  //   if()
+  // }
 }
