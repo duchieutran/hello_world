@@ -29,14 +29,13 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   void _checkLogin() {
-    final userName = _controllerUser.text;
-    final passWord = _controllerPass.text;
-
-    if (userName.isEmpty || passWord.isEmpty) {
+    if (_controllerUser.text.isEmpty || _controllerPass.text.isEmpty) {
       // print('Vui lòng không để trống tài khoản và mật khẩu!');
-    } else if (userName == 'admin' && passWord == '123456') {
+    } else if (_controllerUser.text == 'admin' &&
+        _controllerPass.text == '123456') {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+      return;
     } else {
       // print('Tài Khoản Mật Khẩu sai!');
     }
@@ -54,8 +53,8 @@ class _LoginFormState extends State<LoginForm> {
           decoration: const InputDecoration(
             hintText: 'Type your username',
             hintStyle: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w100,
+                fontSize: 13,
+                fontWeight: FontWeight.w400,
                 color: Color.fromARGB(255, 111, 108, 108)),
             prefixIcon: Icon(
               Icons.person,
@@ -69,8 +68,8 @@ class _LoginFormState extends State<LoginForm> {
           decoration: const InputDecoration(
             hintText: 'Type your password',
             hintStyle: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w100,
+                fontSize: 13,
+                fontWeight: FontWeight.w400,
                 color: Color.fromARGB(255, 111, 108, 108)),
             prefixIcon: Icon(
               Icons.lock,

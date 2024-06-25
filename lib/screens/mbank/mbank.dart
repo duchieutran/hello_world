@@ -13,6 +13,13 @@ class Mbank extends StatefulWidget {
 }
 
 class _MbankState extends State<Mbank> {
+
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,12 +66,13 @@ class _MbankState extends State<Mbank> {
               const MbankViewStep(),
               const SizedBox(height: 100),
               const MbankContact(phone: '0345736189'),
-              const MbankTrick(),
+              const MbankTrick(
+              ),
               const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    widget.changeTab(1); // Chuyển đến tab Feed
+                    widget.changeTab(1);
                   });
                 },
                 style: ElevatedButton.styleFrom(

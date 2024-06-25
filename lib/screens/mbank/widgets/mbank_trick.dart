@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hieuductran/screens/mbank/widgets/mbank_text.dart';
 
 class MbankTrick extends StatelessWidget {
-  const MbankTrick({super.key, this.ischeck = true});
+  const MbankTrick({super.key, this.ischeck = true,});
 
   final bool ischeck;
   @override
@@ -57,7 +57,7 @@ class MbankTrick extends StatelessWidget {
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            
+                             
                             
                           },
                       ),

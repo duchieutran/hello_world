@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hieuductran/screens/home/home.dart';
 import 'package:hieuductran/screens/home_screen/widgets/home_tab_bar.dart';
 import 'package:hieuductran/screens/mbank/mbank.dart';
 import 'package:hieuductran/screens/setting/setting.dart';
 import 'package:hieuductran/screens/webview/webview_screen.dart';
 import 'package:hieuductran/widgets/duchieu_app_bar.dart';
-import '../profile/profile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -76,9 +76,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         body: TabBarView(
           controller: _tabController,
           children: [
-            Mbank(changeTab: changeTab),
+            const HomeTab(),
+            
             const WebviewScreen(),
-            const ProfileTab(),
+            Mbank(changeTab: changeTab),
             const Setting(),
           ],
         ),
