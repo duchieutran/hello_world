@@ -15,7 +15,7 @@ class _LoginFormState extends State<LoginForm> {
   final _controllerUser = TextEditingController();
   final _controllerPass = TextEditingController();
   String checkPass = '';
-  late String checkEmail;
+  String checkEmail = '';
   bool _isShow = true;
   final _focusUser = FocusNode();
   final _focusPass = FocusNode();
@@ -82,11 +82,11 @@ class _LoginFormState extends State<LoginForm> {
           children: [
             LoginText(
               title: checkPass.length > 1
-                  ? LoginLogic().checkFormat(checkEmail, checkPass)
+                  ? LoginLogic().checkFormatPass(checkPass)
                       ? 'mật khẩu đúng định dạng'
                       : 'mật khẩu chưa đúng định dạng'
                   : '',
-              color: LoginLogic().checkFormat(checkEmail, checkPass)
+              color: LoginLogic().checkFormatPass(checkPass)
                   ? Colors.green
                   : Colors.red,
               fsize: 13,
