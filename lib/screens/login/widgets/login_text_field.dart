@@ -10,7 +10,11 @@ class LoginTextField extends StatelessWidget {
       this.focus,
       this.submitted,
       this.done,
-      this.inputType = TextInputType.text, this.change});
+      this.inputType = TextInputType.text,
+      this.change,
+      this.helpText,
+      this.suffixIcon,
+      this.helpColor});
 
   final TextEditingController controller;
   final bool hide;
@@ -21,6 +25,9 @@ class LoginTextField extends StatelessWidget {
   final TextInputAction? done;
   final TextInputType? inputType;
   final Function(String)? change;
+  final String? helpText;
+  final Widget? suffixIcon;
+  final Color? helpColor;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +40,9 @@ class LoginTextField extends StatelessWidget {
       obscureText: hide,
       textInputAction: done,
       decoration: InputDecoration(
+        helperText: helpText,
+        helperStyle: TextStyle(color: helpColor),
+        suffixIcon: suffixIcon,
         hintText: hintText,
         hintStyle: const TextStyle(
             fontSize: 13,

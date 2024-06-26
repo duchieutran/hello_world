@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hieuductran/global/appbar_path.dart';
 import 'package:hieuductran/screens/login/widgets/login_account.dart';
@@ -13,6 +14,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,9 +43,9 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    'Login',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900),
+                  Text(
+                    'login_title'.tr(),
+                    style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w900),
                   ),
                   const SizedBox(height: 10),
                   const LoginForm(),
@@ -58,9 +60,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(
                     height: 70,
                   ),
-                  const LoginText(title: 'Or Sign Up Using'),
+                  LoginText(title: 'login_orther'.tr()),
                   LoginTextButton(
-                    text: 'Sign Up',
+                    text: 'login_signup'.tr(),
                     function: () {},
                     mainAxitsAlm: MainAxisAlignment.center,
                     // height: 5,

@@ -1,0 +1,11 @@
+{
+    "login_title": "Login",
+    "login_email": "Email",
+    "login_pass": "Password : ",
+    "login_pass_format1": "Password is valid",
+    "login_pass_format2": "Invalid password",
+    "login_forgot": "Forgot Password?",
+    "login_button": "LOGIN",
+    "login_orther": "Or Sign Up Using",
+    "login_signup": "Sign Up"
+}

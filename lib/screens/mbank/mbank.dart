@@ -69,7 +69,7 @@ class _MbankState extends State<Mbank> {
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    widget.changeTab(1);
+                    widget.changeTab(0);
                   });
                 },
                 style: ElevatedButton.styleFrom(
@@ -79,13 +79,15 @@ class _MbankState extends State<Mbank> {
                   ),
                 ),
                 child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    SizedBox(
+                      width: 1,
+                    ),
                     Text(
                       'Bắt đầu',
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
-                    SizedBox(width: 110),
                     Icon(
                       Icons.arrow_forward,
                       color: Colors.white,

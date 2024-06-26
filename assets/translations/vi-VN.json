@@ -1,0 +1,11 @@
+{
+    "login_title": "ĐĂNG NHẬP",
+    "login_email": "Email",
+    "login_pass": "Mật Khẩu : ",
+    "login_pass_format1": "Mật khẩu hợp lệ",
+    "login_pass_format2": "Mật khẩu không hợp lệ",
+    "login_forgot": "Quên mật khẩu?",
+    "login_button": "Đăng Nhập",
+    "login_orther": "Hoặc đăng ký sử dụng",
+    "login_signup": "Đăng Kí"
+}

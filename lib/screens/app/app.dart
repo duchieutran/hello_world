@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hieuductran/screens/home/home_show_info/home_show_info.dart';
 import 'package:hieuductran/screens/home_screen/home_screen.dart';
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
         '/homeshowinfo': (context) => const HomeShowInfo(),
       },
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
     );
   }
 }

@@ -13,7 +13,6 @@ class LoginTextButton extends StatefulWidget {
   final MainAxisAlignment mainAxitsAlm;
   final String text;
   final void Function()? function;
-  // final double height;
 
   @override
   State<LoginTextButton> createState() => _LoginTextButtonState();

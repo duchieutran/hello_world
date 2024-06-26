@@ -1,84 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../global/appbar_path.dart';
-
-final List users = [
-  {
-    'name': 'Tran Duc Hieu',
-    'email': 'tranduchieu@gmail.com',
-    'logo': AppbarPath().imgEch,
-  },
-  {
-    'name': 'Anh Hùng Xạ Điêu',
-    'email': 'duongqua@gmail.com',
-    'logo': AppbarPath().imgEch,
-  },
-  {
-    'name': 'Hieu Cute Vai',
-    'email': 'hieuratcute@hnue.com',
-    'logo': AppbarPath().imgEch,
-  },
-  {
-    'name': 'Trọng Đan Dở Hơi',
-    'email': 'tranduchieu2202@gmail.com',
-    'logo': AppbarPath().imgEch,
-  },
-  {
-    'name': 'Nhìn Thấy Em Chưa',
-    'email': 'aloalo@gmail.com',
-    'logo': AppbarPath().imgEch,
-  },
-  {
-    'name': 'Duyên Do Trời, Phận Do Trời ',
-    'email': 'aloalo@gmail.com',
-    'logo': AppbarPath().imgEch,
-  },
-  {
-    'name': 'Như Anh Đã Thấy',
-    'email': 'aloalo@gmail.com',
-    'logo': AppbarPath().imgEch,
-  },
-  {
-    'name': 'Anh Không Thấy Thì Thôi',
-    'email': 'aloalo@gmail.com',
-    'logo': AppbarPath().imgEch,
-  },
-  {
-    'name': 'Chỉnh Logo Tròn',
-    'email': 'aloalo@gmail.com',
-    'logo': AppbarPath().imgEch,
-  },
-  {
-    'name': 'Anh Không Thấy Thì Thôi',
-    'email': 'aloalo@gmail.com',
-    'logo': AppbarPath().imgEch,
-  },
-  {
-    'name': 'Duyên Do Trời, Phận Do Trời ',
-    'email': 'aloalo@gmail.com',
-    'logo': AppbarPath().imgEch,
-  },
-  {
-    'name': 'Như Anh Đã Thấy',
-    'email': 'aloalo@gmail.com',
-    'logo': AppbarPath().imgEch,
-  },
-  {
-    'name': 'Anh Không Thấy Thì Thôi',
-    'email': 'aloalo@gmail.com',
-    'logo': AppbarPath().imgEch,
-  },
-  {
-    'name': 'Chỉnh Logo Tròn',
-    'email': 'aloalo@gmail.com',
-    'logo': AppbarPath().imgEch,
-  },
-  {
-    'name': 'Anh Không Thấy Thì Thôi',
-    'email': 'aloalo@gmail.com',
-    'logo': AppbarPath().imgEch,
-  },
-];
+import 'package:hieuductran/screens/profile/widgets/profile_data.dart';
 
 class ProfileTab extends StatelessWidget {
   const ProfileTab({super.key});
@@ -102,9 +23,9 @@ class _ProfileTabWidgetState extends State<ProfileTabWidget> {
     return Container(
       padding: const EdgeInsets.all(10),
       child: ListView.builder(
-        itemCount: users.length,
+        itemCount: ProfileData().users.hashCode,
         itemBuilder: (context, index) {
-          final user = users[index];
+          final user = ProfileData().users[index];
           return Container(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(

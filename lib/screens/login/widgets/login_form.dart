@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hieuductran/screens/login/widgets/login_logic.dart';
 import 'package:hieuductran/screens/login/widgets/login_text.dart';
@@ -47,56 +48,45 @@ class _LoginFormState extends State<LoginForm> {
           focus: _focusUser,
           submitted: (value) => FocusScope.of(context).requestFocus(_focusPass),
         ),
-        const LoginText(title: 'Password : '),
-        Stack(
-          alignment: Alignment.centerRight,
-          children: [
-            LoginTextField(
-              controller: _controllerPass,
-              change: (value) {
+        LoginText(title: 'login_pass'.tr()),
+        ////////////////////////////////////////////////////////
+        LoginTextField(
+          suffixIcon: IconButton(
+              onPressed: () {
                 setState(() {
-                  checkPass = value;
+                  _isShow = !_isShow;
                 });
               },
-              hide: _isShow,
-              hintText: 'Type your username',
-              iconTextField: Icons.lock,
-              focus: _focusPass,
-              submitted: (value) => LoginLogic().checkLogin(context,
-                  _controllerUser, _controllerPass, checkEmail, checkPass),
-              done: TextInputAction.done,
-            ),
-            IconButton(
-                onPressed: () {
-                  setState(() {
-                    _isShow = !_isShow;
-                  });
-                },
-                icon: _isShow
-                    ? const Icon(Icons.visibility)
-                    : const Icon(Icons.visibility_off))
-          ],
+              icon: _isShow
+                  ? const Icon(Icons.visibility)
+                  : const Icon(Icons.visibility_off)),
+          controller: _controllerPass,
+          change: (value) {
+            setState(() {
+              checkPass = value;
+            });
+          },
+          helpText: checkPass.length > 1
+              ? LoginLogic().checkFormatPass(checkPass)
+                  ? 'login_pass_format1'.tr()
+                  : 'login_pass_format2'.tr()
+              : '',
+          helpColor: LoginLogic().checkFormatPass(checkPass)
+              ? Colors.green
+              : Colors.red,
+          hide: _isShow,
+          hintText: 'Type your password',
+          iconTextField: Icons.lock,
+          focus: _focusPass,
+          submitted: (value) => LoginLogic().checkLogin(
+              context, _controllerUser, _controllerPass, checkEmail, checkPass),
+          done: TextInputAction.done,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            LoginText(
-              title: checkPass.length > 1
-                  ? LoginLogic().checkFormatPass(checkPass)
-                      ? 'mật khẩu đúng định dạng'
-                      : 'mật khẩu chưa đúng định dạng'
-                  : '',
-              color: LoginLogic().checkFormatPass(checkPass)
-                  ? Colors.green
-                  : Colors.red,
-              fsize: 13,
-            ),
-          ],
-        ),
+
         LoginTextButton(
           mainAxitsAlm: MainAxisAlignment.end,
           function: () {},
-          text: 'Forgot Password ?',
+          text: 'login_forgot'.tr(),
         ),
         ElevatedButton(
           onPressed: () {
@@ -104,15 +94,15 @@ class _LoginFormState extends State<LoginForm> {
                 checkEmail, checkPass);
           },
           style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
-          child: const Text(
-            'LOGIN',
-            style: TextStyle(color: Colors.white),
+          child: Text(
+            'login_button'.tr(),
+            style: const TextStyle(color: Colors.white),
           ),
         ),
         LoginTextButton(
             function: () {},
             mainAxitsAlm: MainAxisAlignment.center,
-            text: 'Or Sign Up Using'),
+            text: 'login_orther'.tr()),
       ],
     );
   }

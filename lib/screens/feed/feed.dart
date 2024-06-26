@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:hieuductran/screens/feed/widgets/feed_data.dart';
 
@@ -20,33 +21,28 @@ class FeedTabWidget extends StatefulWidget {
 class _FeedTabWidgetState extends State<FeedTabWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      child: ListView.builder(
-        itemCount: FeedData().usersFeed.length,
-        itemBuilder: (context, index) {
-          final user = FeedData().usersFeed[index];
-          return Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              decoration: const BoxDecoration(
-                border: Border(bottom: BorderSide(width: 3)),
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
-              child: ListTile(
-                leading: ClipOval(
-                  child: Image.asset(
-                    user['logo'],
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                title: Text(user['name']),
-                subtitle: Text(user['email']),
-                trailing: const Icon(Icons.more_vert),
-              ));
-        },
+    return CarouselSlider.builder(
+      itemCount: FeedData().usersFeed.length,
+      options: CarouselOptions(
+        aspectRatio: 2.0,
+        enlargeCenterPage: true,
+        autoPlay: false, // => Thuộc tính này auto lướt nè :))
       ),
+      itemBuilder: (context, index, realIndex) {
+        var data = FeedData().usersFeed[index];
+        return Container(
+          margin: const EdgeInsets.all(5.0),
+          child: ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+            child: Image.asset(
+              data['logo'],
+              // fit: BoxFit.cover,
+              height: 4000,
+              width: 1000.0,
+            ),
+          ),
+        );
+      },
     );
   }
 }
