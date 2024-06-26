@@ -9,7 +9,8 @@ class LoginTextField extends StatelessWidget {
       this.iconTextField,
       this.focus,
       this.submitted,
-      this.done});
+      this.done,
+      this.inputType = TextInputType.text, this.change});
 
   final TextEditingController controller;
   final bool hide;
@@ -18,10 +19,14 @@ class LoginTextField extends StatelessWidget {
   final FocusNode? focus;
   final Function(String)? submitted;
   final TextInputAction? done;
+  final TextInputType? inputType;
+  final Function(String)? change;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: inputType,
+      onChanged: change,
       focusNode: focus,
       onFieldSubmitted: submitted,
       controller: controller,

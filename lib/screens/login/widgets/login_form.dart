@@ -14,6 +14,8 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   final _controllerUser = TextEditingController();
   final _controllerPass = TextEditingController();
+  String checkPass = '';
+  late String checkEmail;
   bool _isShow = true;
   final _focusUser = FocusNode();
   final _focusPass = FocusNode();
@@ -31,25 +33,37 @@ class _LoginFormState extends State<LoginForm> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const LoginText(title: 'Username : '),
+        const LoginText(title: 'Email : '),
         LoginTextField(
+          inputType: TextInputType.emailAddress,
           controller: _controllerUser,
-          hintText: 'Type your username',
+          change: (value) {
+            setState(() {
+              checkEmail = value;
+            });
+          },
+          hintText: 'Type your email',
           iconTextField: Icons.person,
           focus: _focusUser,
           submitted: (value) => FocusScope.of(context).requestFocus(_focusPass),
         ),
+        const LoginText(title: 'Password : '),
         Stack(
           alignment: Alignment.centerRight,
           children: [
             LoginTextField(
               controller: _controllerPass,
+              change: (value) {
+                setState(() {
+                  checkPass = value;
+                });
+              },
               hide: _isShow,
               hintText: 'Type your username',
               iconTextField: Icons.lock,
               focus: _focusPass,
-              submitted: (value) => LoginLogic()
-                  .checkLogin(context, _controllerUser, _controllerPass),
+              submitted: (value) => LoginLogic().checkLogin(context,
+                  _controllerUser, _controllerPass, checkEmail, checkPass),
               done: TextInputAction.done,
             ),
             IconButton(
@@ -63,6 +77,22 @@ class _LoginFormState extends State<LoginForm> {
                     : const Icon(Icons.visibility_off))
           ],
         ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            LoginText(
+              title: checkPass.length > 1
+                  ? LoginLogic().checkFormat(checkEmail, checkPass)
+                      ? 'mật khẩu đúng định dạng'
+                      : 'mật khẩu chưa đúng định dạng'
+                  : '',
+              color: LoginLogic().checkFormat(checkEmail, checkPass)
+                  ? Colors.green
+                  : Colors.red,
+              fsize: 13,
+            ),
+          ],
+        ),
         LoginTextButton(
           mainAxitsAlm: MainAxisAlignment.end,
           function: () {},
@@ -70,7 +100,8 @@ class _LoginFormState extends State<LoginForm> {
         ),
         ElevatedButton(
           onPressed: () {
-            LoginLogic().checkLogin(context, _controllerUser, _controllerPass);
+            LoginLogic().checkLogin(context, _controllerUser, _controllerPass,
+                checkEmail, checkPass);
           },
           style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
           child: const Text(

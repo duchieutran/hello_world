@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 
 class LoginText extends StatelessWidget {
-  const LoginText({super.key, required this.title});
+  const LoginText(
+      {super.key,
+      required this.title,
+      this.color = Colors.black,
+      this.fsize = 16,
+      this.fweight = FontWeight.normal});
 
   final String title;
+  final Color? color;
+  final double? fsize;
+  final FontWeight? fweight;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
+      padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
       child: Text(
         title,
-        style: const TextStyle(
-            color: Colors.black,
-            // color: Color.fromRGBO(215, 215, 215, 0),
-            fontSize: 15,
-            fontWeight: FontWeight.normal),
+        style: TextStyle(color: color, fontSize: fsize, fontWeight: fweight),
       ),
     );
   }
