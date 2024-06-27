@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:hieuductran/screens/home/home_show_info/widgets/home_show_info_style.dart';
 import 'package:hieuductran/widgets/duchieu_app_bar.dart';
+import 'widgets/feed_show_info_style.dart';
 
-class HomeShowInfo extends StatelessWidget {
-  const HomeShowInfo({super.key});
+class FeedShowInfo extends StatelessWidget {
+  const FeedShowInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class HomeShowInfo extends StatelessWidget {
             },
             icon: const Icon(Icons.arrow_back_ios_new)),
       ),
-      body: HomeShowInfoStyle(
+      body: FeedShowInfoStyle(
         gmail: ModalRoute.of(context)!.settings.arguments as String,
       ),
     );

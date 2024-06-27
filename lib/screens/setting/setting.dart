@@ -29,24 +29,24 @@ class _SettingWidgetState extends State<SettingWidget> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Change Language'),
+          title: const Text('Change Language'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               ListTile(
-                title: Text('English'),
+                title: const Text('English'),
                 onTap: () {
                   setState(() {
-                    context.locale = Locale('en', 'US');
+                    context.setLocale(const Locale('en', 'US'));
                     Navigator.of(context).pop();
                   });
                 },
               ),
               ListTile(
-                title: Text('Tiếng Việt'),
+                title: const Text('Tiếng Việt'),
                 onTap: () {
                   setState(() {
-                    context.locale = Locale('vi', 'VN');
+                    context.setLocale(const Locale('vi', 'VN'));
                     Navigator.of(context).pop();
                   });
                 },
@@ -64,46 +64,45 @@ class _SettingWidgetState extends State<SettingWidget> {
       padding: const EdgeInsets.all(10),
       child: ListView(
         children: [
-          const SettingTitle(icon: Icons.person, text: '  Persion'),
+          SettingTitle(icon: Icons.person, text: 'setting_person'.tr()),
           const SettingLine(heightLine: 1, thickness: 0.5),
           SettingListview(children: [
             SettingListaccount(
-              title: 'Change password',
+              title: 'setting_password'.tr(),
               func: () {},
             ),
             SettingListaccount(
-              title: 'Content Settings',
+              title: 'setting_content'.tr(),
               func: () {},
             ),
             SettingListaccount(
-              title: 'Social',
+              title: 'setting_social'.tr(),
               func: () {},
             ),
             SettingListaccount(
-              title: 'Language',
+              title: 'setting_language'.tr(),
               func: () {
                 _translate();
               },
             ),
             SettingListaccount(
-              title: 'Privacy and Security',
+              title: 'setting_pas'.tr(),
               func: () {},
             ),
           ]),
-          const SettingTitle(
-              icon: Icons.notifications, text: '  Notifications'),
+          SettingTitle(icon: Icons.notifications, text: 'setting_noti'.tr()),
           const SettingLine(heightLine: 1, thickness: 0.5),
-          const SettingListview(
+          SettingListview(
             children: [
-              SettingListNotification(title: 'Change password'),
-              SettingListNotification(title: 'Account Active'),
-              SettingListNotification(title: 'Opportunity'),
+              SettingListNotification(title: 'setting_theme'.tr()),
+              SettingListNotification(title: 'setting_active'.tr()),
+              SettingListNotification(title: 'setting_oppo'.tr()),
             ],
           ),
-          const Padding(
-            padding: EdgeInsets.all(20.0),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
             child: Column(children: [
-              SettingButtonSignout(borderRadius: 20, text: 'Sign Out')
+              SettingButtonSignout(borderRadius: 20, text: 'sign_out'.tr())
             ]),
           )
         ],

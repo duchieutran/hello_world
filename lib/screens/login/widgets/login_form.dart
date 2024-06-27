@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hieuductran/screens/login/widgets/login_logic.dart';
 import 'package:hieuductran/screens/login/widgets/login_text.dart';
-import 'package:hieuductran/screens/login/widgets/login_text_button.dart';
 import 'package:hieuductran/screens/login/widgets/login_text_field.dart';
 
 class LoginForm extends StatefulWidget {
@@ -82,11 +81,11 @@ class _LoginFormState extends State<LoginForm> {
               context, _controllerUser, _controllerPass, checkEmail, checkPass),
           done: TextInputAction.done,
         ),
-
-        LoginTextButton(
-          mainAxitsAlm: MainAxisAlignment.end,
-          function: () {},
-          text: 'login_forgot'.tr(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            LoginText(title: 'login_forgot'.tr()),
+          ],
         ),
         ElevatedButton(
           onPressed: () {
@@ -99,10 +98,14 @@ class _LoginFormState extends State<LoginForm> {
             style: const TextStyle(color: Colors.white),
           ),
         ),
-        LoginTextButton(
-            function: () {},
-            mainAxitsAlm: MainAxisAlignment.center,
-            text: 'login_orther'.tr()),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            LoginText(
+              title: 'login_orther'.tr(),
+            ),
+          ],
+        ),
       ],
     );
   }

@@ -3,79 +3,39 @@ import '../../../global/appbar_path.dart';
 class FeedData {
   final List usersFeed = [
     {
-      'name': 'Tran Duc Hieu',
-      'email': 'tranduchieu@gmail.com',
-      'logo': AppbarPath().imgEch,
-    },
-    {
-      'name': 'Anh Hùng Xạ Điêu',
-      'email': 'duongqua@gmail.com',
-      'logo': AppbarPath().imgEch1,
-    },
-    {
-      'name': 'Hieu Cute Vai',
-      'email': 'hieuratcute@hnue.com',
-      'logo': AppbarPath().imgEch2,
-    },
-    {
-      'name': 'Trọng Đan Dở Hơi',
-      'email': 'tranduchieu2202@gmail.com',
-      'logo': AppbarPath().imgEch3,
-    },
-    {
-      'name': 'Nhìn Thấy Em Chưa',
-      'email': 'aloalo@gmail.com',
-      'logo': AppbarPath().imgEch4,
-    },
-    {
-      'name': 'Duyên Do Trời, Phận Do Trời ',
-      'email': 'aloalo@gmail.com',
+      'name': 'Mai Văn Quân',
+      'age': 29,
+      'email': 'quanmai@gmail.com',
       'logo': AppbarPath().imgEch5,
+      'address': 'Tiền Giang',
     },
     {
-      'name': 'Như Anh Đã Thấy',
-      'email': 'aloalo@gmail.com',
-      'logo': AppbarPath().imgCho,
-    },
-    {
-      'name': 'Anh Không Thấy Thì Thôi',
-      'email': 'aloalo@gmail.com',
-      'logo': AppbarPath().imgRua,
-    },
-    {
-      'name': 'Chỉnh Logo Tròn',
-      'email': 'aloalo@gmail.com',
-      'logo': AppbarPath().imgEch,
-    },
-    {
-      'name': 'Anh Không Thấy Thì Thôi',
-      'email': 'aloalo@gmail.com',
+      'name': 'Lý Thị Thanh',
+      'age': 30,
+      'email': 'thanhly@gmail.com',
       'logo': AppbarPath().imgEch1,
+      'address': 'Long An',
     },
     {
-      'name': 'Duyên Do Trời, Phận Do Trời ',
-      'email': 'aloalo@gmail.com',
+      'name': 'Nguyễn Văn Đức',
+      'age': 27,
+      'email': 'ducnguyen@gmail.com',
       'logo': AppbarPath().imgEch2,
+      'address': 'Kiên Giang',
     },
     {
-      'name': 'Như Anh Đã Thấy',
-      'email': 'aloalo@gmail.com',
+      'name': 'Trần Thị Ngọc',
+      'age': 25,
+      'email': 'ngoctran@gmail.com',
       'logo': AppbarPath().imgEch3,
+      'address': 'Sóc Trăng',
     },
     {
-      'name': 'Anh Không Thấy Thì Thôi',
-      'email': 'aloalo@gmail.com',
+      'name': 'Phạm Văn An',
+      'age': 26,
+      'email': 'anpham@gmail.com',
       'logo': AppbarPath().imgEch4,
-    },
-    {
-      'name': 'Chỉnh Logo Tròn',
-      'email': 'aloalo@gmail.com',
-      'logo': AppbarPath().imgEch5,
-    },
-    {
-      'name': 'Anh Không Thấy Thì Thôi',
-      'email': 'aloalo@gmail.com',
-      'logo': AppbarPath().imgCho,
+      'address': 'Bạc Liêu',
     },
   ];
 }

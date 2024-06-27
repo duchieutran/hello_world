@@ -1,17 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:hieuductran/screens/home/home_show_info/widgets/home_show_info_text.dart';
-import 'package:hieuductran/screens/home/widgets/home_data.dart';
-// import 'package:hieuductran/screens/profile/profile.dart';
+import 'package:hieuductran/screens/feed/widgets/feed_data.dart';
+import 'package:hieuductran/screens/feed/widgets/feed_show_info/widgets/feed_show_info_text.dart';
 
-class HomeShowInfoStyle extends StatelessWidget {
-  const HomeShowInfoStyle({super.key, required this.gmail});
+class FeedShowInfoStyle extends StatelessWidget {
+  const FeedShowInfoStyle({super.key, required this.gmail});
   final String? gmail;
 
   @override
   Widget build(BuildContext context) {
     Map<String, dynamic> dataName =
-        HomeData().users.firstWhere((value) => value['email'] == gmail);
+        FeedData().usersFeed.firstWhere((value) => value['email'] == gmail);
 
     return Container(
       color: const Color.fromARGB(255, 135, 207, 248),
@@ -35,16 +34,16 @@ class HomeShowInfoStyle extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                HomeShowInfoText(
+                FeedShowInfoText(
                   title: dataName['name'],
                   fsize: 22,
                   fweight: FontWeight.bold,
                   color: Colors.red,
                 ),
-                HomeShowInfoText(
+                FeedShowInfoText(
                     title: '${'show_age'.tr()} ${dataName['age']}'),
-                HomeShowInfoText(title: 'Gmail : ${dataName['email']}'),
-                HomeShowInfoText(
+                FeedShowInfoText(title: 'Gmail : ${dataName['email']}'),
+                FeedShowInfoText(
                     title: '${'show_address'.tr()} ${dataName['address']}'),
               ],
             ),

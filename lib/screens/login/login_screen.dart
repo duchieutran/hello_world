@@ -4,7 +4,6 @@ import 'package:hieuductran/global/appbar_path.dart';
 import 'package:hieuductran/screens/login/widgets/login_account.dart';
 import 'package:hieuductran/screens/login/widgets/login_form.dart';
 import 'package:hieuductran/screens/login/widgets/login_text.dart';
-import 'package:hieuductran/screens/login/widgets/login_text_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -45,7 +44,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Text(
                     'login_title'.tr(),
-                    style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w900),
+                    style: const TextStyle(
+                        fontSize: 30, fontWeight: FontWeight.w900),
                   ),
                   const SizedBox(height: 10),
                   const LoginForm(),
@@ -61,12 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 70,
                   ),
                   LoginText(title: 'login_orther'.tr()),
-                  LoginTextButton(
-                    text: 'login_signup'.tr(),
-                    function: () {},
-                    mainAxitsAlm: MainAxisAlignment.center,
-                    // height: 5,
-                  )
+                  LoginText(title: 'login_signup'.tr())
                 ],
               ),
             ),

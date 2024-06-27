@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 import '../../../global/appbar_path.dart';
 
-class HomeData extends ChangeNotifier {
+class HomeData {
   List<Map<String, dynamic>> users = [
     {
       'name': 'Trần Đức Hiếu',
@@ -144,11 +143,4 @@ class HomeData extends ChangeNotifier {
       'address': 'Bạc Liêu',
     }
   ];
-
-  List<Map<String, dynamic>> get user => users;
-
-  void removeUser(int index) {
-    users.removeAt(index);
-    notifyListeners();
-  }
 }

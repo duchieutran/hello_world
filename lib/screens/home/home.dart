@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hieuductran/screens/home/widgets/home_data.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:provider/provider.dart';
+import 'package:hieuductran/screens/home/widgets/home_data.dart';
+import 'package:hieuductran/screens/home/widgets/home_delete.dart';
 
 class HomeTab extends StatelessWidget {
-  const HomeTab({super.key});
+  const HomeTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => HomeData(),
-      child: const HomeWidget(),
-    );
+    return const HomeWidget();
   }
 }
 
@@ -23,63 +20,113 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
+  List<Map<String, dynamic>> users = HomeData().users;
+  // Create an instance of HomeDelete
+
   @override
   Widget build(BuildContext context) {
-    final homeDataProvider = Provider.of<HomeData>(context);
-
     return Container(
       padding: const EdgeInsets.all(10),
       child: ListView.builder(
-        itemCount: homeDataProvider.users.length,
+        itemCount: users.length,
         itemBuilder: (context, index) {
-          final user = homeDataProvider.users[index];
+          Map<String, dynamic> user = users[index];
           return Slidable(
-            key: ValueKey(user['email']),
             endActionPane: ActionPane(
-              motion: const ScrollMotion(),
+              motion: const DrawerMotion(),
               children: [
                 SlidableAction(
-                  onPressed: (context) {
-                    // Sửa
-                  },
                   backgroundColor: Colors.blue,
                   foregroundColor: Colors.white,
-                  icon: Icons.edit,
-                  label: 'edit',
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                const SizedBox(
-                  width: 10,
+                  label: 'Edit',
+                  onPressed: (context) {
+                    edit(context, users, index);
+                  },
                 ),
                 SlidableAction(
-                  onPressed: (context) => homeDataProvider.removeUser(index),
                   backgroundColor: Colors.red,
                   foregroundColor: Colors.white,
                   icon: Icons.delete,
-                  label: 'delete',
-                  borderRadius: BorderRadius.circular(10),
+                  label: 'Delete',
+                  onPressed: (context) {
+                    HomeDelete().delete(context, _delete, index);
+                  },
                 )
               ],
             ),
-            child: ListTile(
-              leading: ClipOval(
-                child: Image.asset(
-                  user['logo'],
-                  width: 50,
-                  height: 50,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              title: Text(user['name']),
-              subtitle: Text(user['email']),
-              onTap: () {
-                Navigator.pushNamed(context, '/homeshowinfo',
-                    arguments: user['email']);
-              },
-            ),
+            child: buildUserListTile(user),
           );
         },
       ),
     );
   }
+
+  void _delete(int index) {
+    setState(() {
+      users.removeAt(index);
+    });
+  }
+
+  void edit(BuildContext context, List users, int index) {
+    late String newName;
+    late String newEmail;
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Edit User'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              TextField(
+                decoration: const InputDecoration(labelText: 'Name'),
+                onChanged: (value) {
+                  newName = value;
+                },
+              ),
+              TextField(
+                decoration: const InputDecoration(labelText: 'Email'),
+                onChanged: (value) {
+                  newEmail = value;
+                },
+              ),
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  users[index]['name'] = newName;
+                  users[index]['email'] = newEmail;
+                });
+                Navigator.of(context).pop();
+              },
+              child: const Text('Save'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget buildUserListTile(Map<String, dynamic> user) => ListTile(
+        onTap: () {
+          Navigator.pushNamed(context, '/homeshowinfo',
+              arguments: user['email']);
+        },
+        contentPadding: const EdgeInsets.all(16),
+        title: Text(user['name']),
+        subtitle: Text(user['email']),
+        leading: CircleAvatar(
+          radius: 30,
+          backgroundImage: AssetImage(user['logo']),
+        ),
+      );
 }

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hieuductran/screens/feed/feed.dart';
 import 'package:hieuductran/screens/home/home.dart';
@@ -48,26 +49,37 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             color: Colors.black,
           ),
           action: const [
-            Icon(Icons.notifications),
+            Stack(alignment: Alignment.centerRight, children: [
+              Icon(Icons.notifications),
+              CircleAvatar(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.red,
+                radius: 7,
+                child: Text(
+                  '9+',
+                  style: TextStyle(fontSize: 10),
+                ),
+              )
+            ]),
             Icon(Icons.more_vert),
           ],
           bottom: TabBar(
             controller: _tabController,
-            tabs: const [
+            tabs: [
               HomeTabBar(
-                text: 'Home',
+                text: 'home_screen'.tr(),
                 icon: Icons.home,
               ),
               HomeTabBar(
-                text: 'Feed',
+                text: 'feed_srceen'.tr(),
                 icon: Icons.list,
               ),
               HomeTabBar(
-                text: 'Profile',
+                text: 'profile_screen'.tr(),
                 icon: Icons.person,
               ),
               HomeTabBar(
-                text: 'Setting',
+                text: 'setting_screen'.tr(),
                 icon: Icons.settings,
               ),
             ],
