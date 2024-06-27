@@ -1,16 +1,22 @@
-# hello_world
 
-A new Flutter project.
+## 🌐Socials
+[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://facebook.com/https://www.facebook.com/tdh.bmw/) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/c/https://www.youtube.com/channel/UCDATJSlThJeq8F8locwBTLA) 
 
-## Getting Started
+# 💻Tech Stack
+![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=flat&logo=dart&logoColor=white)
+# 📊GitHub Stats :
+![](https://github-readme-stats.vercel.app/api?username=duchieutran&theme=radical&hide_border=false&include_all_commits=false&count_private=false)<br/>
+![](https://github-readme-streak-stats.herokuapp.com/?user=duchieutran&theme=radical&hide_border=false)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=duchieutran&theme=radical&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
 
-This project is a starting point for a Flutter application.
+## 🏆GitHub Trophies
+![](https://github-trophies.vercel.app/?username=duchieutran&theme=radical&no-frame=false&no-bg=false&margin-w=4)
 
-A few resources to get you started if this is your first Flutter project:
+### ✍️Random Dev Quote
+![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 😂Random Dev Meme
+<img src="https://random-memer.herokuapp.com/" width="512px"/>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+[![](https://visitcount.itsvg.in/api?id=duchieutran&icon=0&color=0)](https://visitcount.itsvg.in)
