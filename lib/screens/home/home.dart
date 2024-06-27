@@ -4,7 +4,7 @@ import 'package:hieuductran/screens/home/widgets/home_data.dart';
 import 'package:hieuductran/screens/home/widgets/home_delete.dart';
 
 class HomeTab extends StatelessWidget {
-  const HomeTab({Key? key}) : super(key: key);
+  const HomeTab({super.key});
 
   @override
   Widget build(BuildContext context) {
