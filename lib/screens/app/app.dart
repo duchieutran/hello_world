@@ -1,10 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:hieuductran/screens/feed/widgets/feed_show_info/feed_show_info.dart';
-import 'package:hieuductran/screens/home/home_show_info/home_show_info.dart';
-import 'package:hieuductran/screens/home_screen/home_screen.dart';
-import 'package:hieuductran/screens/login/login_screen.dart';
-import '../webview/webview_screen.dart';
+import 'package:hieuductran/global/app_routes.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,14 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Ong Chau Demo',
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const LoginScreen(),
-        '/homeScreen': (context) => const HomeScreen(),
-        '/webviewscreen': (context) => const WebviewScreen(),
-        '/homeshowinfo': (context) => const HomeShowInfo(),
-        '/feedshowinfo': (context) => const FeedShowInfo(),
-      },
+      onGenerateRoute: AppRoutes.onGenarateRoute,
       debugShowCheckedModeBanner: false,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
