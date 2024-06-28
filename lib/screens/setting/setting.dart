@@ -38,6 +38,9 @@ class _SettingWidgetState extends State<SettingWidget> {
                 onTap: () {
                   setState(() {
                     context.setLocale(const Locale('en', 'US'));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Vui lòng chờ 5s...')));
+                    Future.delayed(const Duration(seconds: 5));
                     Navigator.of(context).pop();
                   });
                 },
@@ -47,6 +50,9 @@ class _SettingWidgetState extends State<SettingWidget> {
                 onTap: () {
                   setState(() {
                     context.setLocale(const Locale('vi', 'VN'));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Vui lòng chờ 5s...')));
+                    Future.delayed(const Duration(seconds: 5));
                     Navigator.of(context).pop();
                   });
                 },

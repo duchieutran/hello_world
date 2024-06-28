@@ -32,30 +32,32 @@ class _HomeWidgetState extends State<HomeWidget> {
         itemBuilder: (context, index) {
           Map<String, dynamic> user = users[index];
           return Slidable(
-            endActionPane: ActionPane(
-              motion: const DrawerMotion(),
-              children: [
-                SlidableAction(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
-                  label: 'Edit',
-                  onPressed: (context) {
-                    edit(context, users, index);
-                  },
-                ),
-                SlidableAction(
-                  backgroundColor: Colors.red,
-                  foregroundColor: Colors.white,
-                  icon: Icons.delete,
-                  label: 'Delete',
-                  onPressed: (context) {
-                    HomeDelete().delete(context, _delete, index);
-                  },
-                )
-              ],
-            ),
-            child: buildUserListTile(user),
-          );
+              endActionPane: ActionPane(
+                motion: const DrawerMotion(),
+                children: [
+                  SlidableAction(
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
+                    icon: Icons.edit,
+                    label: 'Edit',
+                    onPressed: (context) {
+                      edit(context, users, index);
+                    },
+                  ),
+                  SlidableAction(
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
+                    icon: Icons.delete,
+                    label: 'Delete',
+                    onPressed: (context) {
+                      HomeDelete().delete(context, _delete, index);
+                    },
+                  )
+                ],
+              ),
+              child: buildUserListTile(user));
         },
       ),
     );
@@ -121,7 +123,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           Navigator.pushNamed(context, '/homeshowinfo',
               arguments: user['email']);
         },
-        contentPadding: const EdgeInsets.all(16),
+        contentPadding: const EdgeInsets.all(5),
         title: Text(user['name']),
         subtitle: Text(user['email']),
         leading: CircleAvatar(
